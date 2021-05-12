@@ -13,7 +13,5 @@ namespace EmbraceSpace.Models.SpaceStationModels
         public string Name { get; set; }
         [Required]
         public int MaximumOccupancy { get; set; }
-        [Required]
-        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

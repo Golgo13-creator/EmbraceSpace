@@ -12,6 +12,7 @@ namespace EmbraceSpace.Services
     {
         private readonly ApplicationDbContext _context = new ApplicationDbContext();
         //create
+        //test
         public bool CreateLaunchSite(LaunchSiteCreate model)
         {
             LaunchSite entity = new LaunchSite
@@ -24,6 +25,7 @@ namespace EmbraceSpace.Services
             return _context.SaveChanges() == 1;
         }
         //get all
+        //test
         public List<LaunchSiteDetail> GetAllLaunchSites()
         {
             var launchSiteEntities = _context.LaunchSites.ToList();
@@ -37,7 +39,8 @@ namespace EmbraceSpace.Services
             return launchSiteList;
         }
         //get by name
-        public LaunchSiteDetail GetLaunchSiteById(string name)
+        //test
+        public LaunchSiteDetail GetLaunchSiteByName(string name)
         {
             var launchSiteEntity = _context.LaunchSites.Find(name);
             if (launchSiteEntity == null)
@@ -51,7 +54,8 @@ namespace EmbraceSpace.Services
             };
             return detail;
         }
-        //get by location
+        //get by location (return a list)
+        //test
         public LaunchSiteDetail GetLaunchSiteByLocation(string location)
         {
             var launchSiteEntity = _context.LaunchSites.Find(location);
@@ -67,6 +71,7 @@ namespace EmbraceSpace.Services
             return detail;
         }
         //update
+        //test
         public bool UpdateLaunchSite(LaunchSiteDetail newData)
         {
             using(var ctx = new ApplicationDbContext())
@@ -84,6 +89,7 @@ namespace EmbraceSpace.Services
             }
         }
         //delete
+        //test
         public bool DeleteLaunchSite(int id)
         {
             using (var ctx = new ApplicationDbContext())

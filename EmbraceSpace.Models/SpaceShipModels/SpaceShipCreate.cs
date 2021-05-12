@@ -15,7 +15,5 @@ namespace EmbraceSpace.Models.SpaceShipModels
         [Required]
         [Display(Name = "Crew Capacity")]
         public int CrewCapacity { get; set; }
-        [Required]
-        public DateTimeOffset CreateUtc { get; set; }
     }
 }

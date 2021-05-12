@@ -12,6 +12,7 @@ namespace EmbraceSpace.Services
     {
         private readonly ApplicationDbContext _context = new ApplicationDbContext();
         //create 
+        //test
         public bool CreateSpaceShip(SpaceShipCreate model)
         {
             SpaceShip entity = new SpaceShip
@@ -24,6 +25,7 @@ namespace EmbraceSpace.Services
             return _context.SaveChanges() == 1;
         }
         //get all
+        //test
         public List<SpaceShipDetail> GetAllSpaceShips()
         {
             var spaceshipEntities = _context.SpaceShips.ToList();
@@ -37,6 +39,7 @@ namespace EmbraceSpace.Services
             return spaceshipList;
         }
         //get (details by name)
+        //test
         public SpaceShipDetail GetSpaceShipByName(string shipName)
         {
             var spaceShipEntity = _context.SpaceShips.Find(shipName);
@@ -51,7 +54,8 @@ namespace EmbraceSpace.Services
             };
             return spaceShipDetail;
         }
-        //get (details by crew capacity)
+        //get (details by crew capacity) return a list
+        //test
         public SpaceShipDetail GetSpaceShipByMaxCapacity(int crewCapacity)
         {
             var spaceShipEntity = _context.SpaceShips.Find(crewCapacity);
@@ -67,6 +71,7 @@ namespace EmbraceSpace.Services
             return spaceShipDetail;
         }
         //update
+        //test
         public bool UpdateSpaceShip(SpaceShipDetail newSpaceShipData)
         {
             using(var ctx = new ApplicationDbContext())
@@ -84,6 +89,7 @@ namespace EmbraceSpace.Services
             }
         }
         //delete
+        //test
         public bool DeleteSpaceShip(int id)
         {
             using(var ctx = new ApplicationDbContext())

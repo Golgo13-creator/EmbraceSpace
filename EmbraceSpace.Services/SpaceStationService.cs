@@ -12,6 +12,7 @@ namespace EmbraceSpace.Services
     {
         private readonly ApplicationDbContext _context = new ApplicationDbContext();
         //create
+        //test
         public bool CreateSpaceStation(SpaceStationCreate model)
         {
             SpaceStation entity = new SpaceStation
@@ -24,6 +25,7 @@ namespace EmbraceSpace.Services
             return _context.SaveChanges() == 1;
         }
         //get all
+        //test
         public List<SpaceStationDetail> GetAllSpaceStations()
         {
             var spaceStationEntities = _context.SpaceStations.ToList();
@@ -37,6 +39,7 @@ namespace EmbraceSpace.Services
             return spaceStationList;
         }
         //get by name
+        //test
         public SpaceStationDetail GetSpaceStationByName(string spaceStation)
         {
             var spaceStationEntity = _context.SpaceStations.Find(spaceStation);
@@ -51,9 +54,11 @@ namespace EmbraceSpace.Services
             };
             return spaceStationDetail;
         }
-        //get by max occupants
+        //get by max occupants (return a list)
+        //test
 
         //update
+        //test
         public bool UpdateSpaceStation(SpaceStationDetail newStationData)
         {
             using(var ctx = new ApplicationDbContext())
@@ -71,6 +76,7 @@ namespace EmbraceSpace.Services
             }
         }
         //delete
+        //test
         public bool DeleteSpaceStation(int id)
         {
             using (var ctx = new ApplicationDbContext())

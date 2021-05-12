@@ -13,7 +13,5 @@ namespace EmbraceSpace.Models.LaunchSiteModels
         public string Name { get; set; }
         [Required]
         public string Location { get; set; }
-        [Required]
-        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
