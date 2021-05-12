@@ -56,11 +56,14 @@
   <ItemGroup>
     <Compile Include="LaunchSiteModels\LaunchSiteCreate.cs" />
     <Compile Include="LaunchSiteModels\LaunchSiteDetail.cs" />
+    <Compile Include="LaunchSiteModels\LaunchSiteEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpaceShipModels\SpaceShipCreate.cs" />
     <Compile Include="SpaceShipModels\SpaceShipDetail.cs" />
+    <Compile Include="SpaceShipModels\SpaceShipEdit.cs" />
     <Compile Include="SpaceStationModels\SpaceStationCreate.cs" />
     <Compile Include="SpaceStationModels\SpaceStationDetail.cs" />
+    <Compile Include="SpaceStationModels\SpaceStationEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

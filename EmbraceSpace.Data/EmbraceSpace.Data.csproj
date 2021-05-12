@@ -60,6 +60,14 @@
     <Compile Include="Migrations\202105111553007_InitialMigration.Designer.cs">
       <DependentUpon>202105111553007_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105121345345_SecondMigration.cs" />
+    <Compile Include="Migrations\202105121345345_SecondMigration.Designer.cs">
+      <DependentUpon>202105121345345_SecondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105122047030_mvp.cs" />
+    <Compile Include="Migrations\202105122047030_mvp.Designer.cs">
+      <DependentUpon>202105122047030_mvp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShipOrigin.cs" />
@@ -74,6 +82,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105111553007_InitialMigration.resx">
       <DependentUpon>202105111553007_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105121345345_SecondMigration.resx">
+      <DependentUpon>202105121345345_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105122047030_mvp.resx">
+      <DependentUpon>202105122047030_mvp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

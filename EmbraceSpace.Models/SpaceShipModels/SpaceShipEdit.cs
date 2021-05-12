@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EmbraceSpace.Models.SpaceShipModels
 {
-    public class SpaceShipCreate
+    public class SpaceShipEdit
     {
-        [Required]
-        [Display(Name = "Ship Name")]
+        public int Id { get; set; }
         public string ShipName { get; set; }
-        [Required]
-        [Display(Name = "Crew Capacity")]
         public int CrewCapacity { get; set; }
     }
 }

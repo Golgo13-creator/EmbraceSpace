@@ -1,4 +1,5 @@
 ﻿using EmbraceSpace.Data;
+using EmbraceSpace.Models;
 using EmbraceSpace.Models.SpaceStationModels;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace EmbraceSpace.Services
     {
         private readonly ApplicationDbContext _context = new ApplicationDbContext();
         //create
+        //test
         public bool CreateSpaceStation(SpaceStationCreate model)
         {
             SpaceStation entity = new SpaceStation
@@ -24,6 +26,7 @@ namespace EmbraceSpace.Services
             return _context.SaveChanges() == 1;
         }
         //get all
+        //test
         public List<SpaceStationDetail> GetAllSpaceStations()
         {
             var spaceStationEntities = _context.SpaceStations.ToList();
@@ -36,25 +39,30 @@ namespace EmbraceSpace.Services
             }).ToList();
             return spaceStationList;
         }
-        //get by name
-        public SpaceStationDetail GetSpaceStationByName(string spaceStation)
+        //get (details by id)
+        //test
+        public SpaceStationDetail GetSpaceStationById(int id)
         {
-            var spaceStationEntity = _context.SpaceStations.Find(spaceStation);
-            if (spaceStationEntity == null)
-                return null;
-            var spaceStationDetail = new SpaceStationDetail
+            using (var ctx = new ApplicationDbContext())
             {
-                Id = spaceStationEntity.Id,
-                Name = spaceStationEntity.Name,
-                MaximumOccupancy = spaceStationEntity.MaximumOccupancy,
-                CreatedUtc = spaceStationEntity.CreatedUtc
-            };
-            return spaceStationDetail;
+                var entity =
+                    ctx
+                        .SpaceStations
+                        .Single(s => s.Id == id);
+                return
+                     new SpaceStationDetail
+                     {
+                         Id = entity.Id,
+                         Name = entity.Name,
+                         MaximumOccupancy = entity.MaximumOccupancy,
+                         CreatedUtc = entity.CreatedUtc,
+                         ModifiedUtc = entity.ModifiedUtc
+                     };
+            }
         }
-        //get by max occupants
-
         //update
-        public bool UpdateSpaceStation(SpaceStationDetail newStationData)
+        //test
+        public bool UpdateSpaceStation(SpaceStationEdit newStationData)
         {
             using(var ctx = new ApplicationDbContext())
             {
@@ -65,12 +73,12 @@ namespace EmbraceSpace.Services
                 oldData.Id = newStationData.Id;
                 oldData.Name = newStationData.Name;
                 oldData.MaximumOccupancy = newStationData.MaximumOccupancy;
-                oldData.CreatedUtc = newStationData.CreatedUtc;
                 oldData.ModifiedUtc = DateTimeOffset.Now;
                 return ctx.SaveChanges() == 1;
             }
         }
         //delete
+        //test
         public bool DeleteSpaceStation(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -87,5 +95,7 @@ namespace EmbraceSpace.Services
                 return false;
             }
         }
+        //get by max occupants (return a list)
+        //test
     }
 }
