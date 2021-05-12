@@ -169,8 +169,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LaunchSiteController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SpaceShipController.cs" />
+    <Compile Include="Controllers\SpaceStationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +242,16 @@
     <Content Include="Views\SpaceShip\Details.cshtml" />
     <Content Include="Views\SpaceShip\Edit.cshtml" />
     <Content Include="Views\SpaceShip\Delete.cshtml" />
+    <Content Include="Views\SpaceStation\Index.cshtml" />
+    <Content Include="Views\SpaceStation\Create.cshtml" />
+    <Content Include="Views\SpaceStation\Details.cshtml" />
+    <Content Include="Views\SpaceStation\Edit.cshtml" />
+    <Content Include="Views\SpaceStation\Delete.cshtml" />
+    <Content Include="Views\LaunchSite\Index.cshtml" />
+    <Content Include="Views\LaunchSite\Create.cshtml" />
+    <Content Include="Views\LaunchSite\Details.cshtml" />
+    <Content Include="Views\LaunchSite\Edit.cshtml" />
+    <Content Include="Views\LaunchSite\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -34,56 +34,44 @@ namespace EmbraceSpace.Services
                 Id = c.Id,
                 Name = c.Name,
                 Location = c.Location,
-                CreatedUtc = c.CreatedUtc
+                CreatedUtc = c.CreatedUtc,
+                ModifiedUtc = c.ModifiedUtc
             }).ToList();
             return launchSiteList;
         }
-        //get by name
+        //get (details by id)
         //test
-        public LaunchSiteDetail GetLaunchSiteByName(string name)
+        public LaunchSiteDetail GetLaunchSiteById(int id)
         {
-            var launchSiteEntity = _context.LaunchSites.Find(name);
-            if (launchSiteEntity == null)
-                return null;
-            var detail = new LaunchSiteDetail
+            using (var ctx = new ApplicationDbContext())
             {
-                Id = launchSiteEntity.Id,
-                Name = launchSiteEntity.Name,
-                Location = launchSiteEntity.Location,
-                CreatedUtc = launchSiteEntity.CreatedUtc
-            };
-            return detail;
-        }
-        //get by location (return a list)
-        //test
-        public LaunchSiteDetail GetLaunchSiteByLocation(string location)
-        {
-            var launchSiteEntity = _context.LaunchSites.Find(location);
-            if (launchSiteEntity == null)
-                return null;
-            var detail = new LaunchSiteDetail
-            {
-                Id = launchSiteEntity.Id,
-                Name = launchSiteEntity.Name,
-                Location = launchSiteEntity.Location,
-                CreatedUtc = launchSiteEntity.CreatedUtc
-            };
-            return detail;
+                var entity =
+                    ctx
+                        .LaunchSites
+                        .Single(s => s.Id == id);
+                return
+                     new LaunchSiteDetail
+                     {
+                         Id = entity.Id,
+                         Name = entity.Name,
+                         Location = entity.Location,
+                         CreatedUtc = entity.CreatedUtc
+                     };
+            }
         }
         //update
         //test
-        public bool UpdateLaunchSite(LaunchSiteDetail newData)
+        public bool UpdateLaunchSite(LaunchSiteEdit model)
         {
             using(var ctx = new ApplicationDbContext())
             {
                 var oldData =
                     ctx
                     .LaunchSites
-                    .Single(s => s.Id == newData.Id);
-                oldData.Id = newData.Id;
-                oldData.Name = newData.Name;
-                oldData.Location = newData.Location;
-                oldData.CreatedUtc = newData.CreatedUtc;
+                    .Single(s => s.Id == model.Id);
+                oldData.Id = model.Id;
+                oldData.Name = model.Name;
+                oldData.Location = model.Location;
                 oldData.ModifiedUtc = DateTimeOffset.Now;
                 return ctx.SaveChanges() == 1;
             }
@@ -106,5 +94,21 @@ namespace EmbraceSpace.Services
                 return false;
             }
         }
+        //get by location (return a list)
+        //test
+        //public LaunchSiteDetail GetLaunchSiteByLocation(string location)
+        //{
+        //    var launchSiteEntity = _context.LaunchSites.Find(location);
+        //    if (launchSiteEntity == null)
+        //        return null;
+        //    var detail = new LaunchSiteDetail
+        //    {
+        //        Id = launchSiteEntity.Id,
+        //        Name = launchSiteEntity.Name,
+        //        Location = launchSiteEntity.Location,
+        //        CreatedUtc = launchSiteEntity.CreatedUtc
+        //    };
+        //    return detail;
+        //}
     }
 }

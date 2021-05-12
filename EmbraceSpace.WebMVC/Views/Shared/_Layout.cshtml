@@ -25,6 +25,8 @@
                     @if(User.Identity.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("SpaceShips", "Index", "SpaceShip")</li>
+                        <li>@Html.ActionLink("SpaceStations", "Index", "SpaceStation")</li>
+                        <li>@Html.ActionLink("LaunchSites", "Index", "LaunchSite")</li>
                     }
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
