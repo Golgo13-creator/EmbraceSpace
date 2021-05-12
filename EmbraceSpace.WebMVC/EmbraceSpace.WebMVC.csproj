@@ -237,6 +237,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\SpaceShip\Index.cshtml" />
     <Content Include="Views\SpaceShip\Create.cshtml" />
+    <Content Include="Views\SpaceShip\Details.cshtml" />
+    <Content Include="Views\SpaceShip\Edit.cshtml" />
+    <Content Include="Views\SpaceShip\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
