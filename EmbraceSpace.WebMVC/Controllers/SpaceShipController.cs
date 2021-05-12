@@ -26,13 +26,15 @@ namespace EmbraceSpace.WebMVC.Controllers
         [HttpPost]
         public ActionResult Create(SpaceShipCreate model)
         {
-            if(!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if(!ModelState.IsValid) return View(model);
             var service = new SpaceShipService();
-            service.CreateSpaceShip(model);
-            return RedirectToAction("Index");
+            if(service.CreateSpaceShip(model))
+            {
+                TempData["SaveResult"] = "Your SpaceShip was created.";
+                return RedirectToAction("Index");
+            };
+            ModelState.AddModelError("", "SpaceShip could not be created.");
+            return View(model);
         }
     }
 }
